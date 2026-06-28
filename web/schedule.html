@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixture La Liga 2025-26 — Próximos Partidos | La Liga DataStorm</title>
+  <meta name="description" content="Fixture y calendario completo de La Liga, Champions League y Copa del Rey 2025-26. Próximos partidos con fecha y hora Argentina.">
+  <meta property="og:title" content="Fixture La Liga — La Liga DataStorm">
+  <meta property="og:description" content="Próximos partidos de La Liga, UCL y Copa del Rey con horarios para Argentina.">
+  <meta property="og:url" content="https://ligadatastorm.com/schedule.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://ligadatastorm.com/schedule.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E8644E'/%3E%3Cstop offset='100%25' stop-color='%238E11F5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='26' fill='white'%3ELD%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--liga:#E8644E;--storm:#8E11F5;--bg:#08080f;--bg2:#0f0f1a;--bg3:#161625;--card:#12121f;--border:rgba(255,255,255,0.07);--text:#f0f0f8;--muted:#7070a0;--grad:linear-gradient(135deg,#E8644E,#8E11F5)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(8,8,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:.4rem}
+    .brand-l{color:var(--liga)}.brand-s{color:var(--storm)}
+    .nav-links{display:flex;gap:.25rem}
+    .nav-links a{padding:.4rem .8rem;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+    .nav-links a.active{color:var(--liga);background:rgba(232,100,78,.08)}
+    .page-header{padding:4rem 6vw 2.5rem;background:linear-gradient(180deg,rgba(142,17,245,.08) 0%,transparent 100%);border-bottom:1px solid var(--border)}
+    .page-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--liga);margin-bottom:.5rem}
+    .page-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-2px}
+    .page-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .controls{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:1.2rem 6vw;border-bottom:1px solid var(--border);background:var(--bg2);position:sticky;top:64px;z-index:50}
+    .filter-tabs{display:flex;gap:.3rem}
+    .tab{padding:.4rem .9rem;border-radius:7px;font-size:.78rem;font-weight:700;background:transparent;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+    .tab.active{background:var(--grad);color:#fff;border-color:transparent}
+    .content{padding:2rem 6vw 3rem;max-width:880px;margin:0 auto}
+    .date-group{margin-bottom:2.5rem}
+    .date-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.5rem 0;border-bottom:1px solid var(--border);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+    .date-label::before{content:'';display:block;width:3px;height:14px;background:var(--liga);border-radius:2px;flex-shrink:0}
+    .match-row{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:.5rem;transition:border-color .2s}
+    .match-row:hover{border-color:rgba(232,100,78,.3)}
+    .match-league{font-size:.65rem;font-weight:700;color:var(--muted);min-width:90px;letter-spacing:.04em}
+    .league-laliga{color:var(--liga)}
+    .league-ucl{color:#b99bf8}
+    .league-copa{color:#50e664}
+    .match-teams{flex:1;display:flex;align-items:center;gap:.5rem}
+    .team-n{font-weight:700;font-size:.88rem}
+    .vs{color:var(--muted);font-size:.75rem;font-weight:700;padding:0 .3rem}
+    .match-time{font-size:.78rem;font-weight:600;color:var(--storm);white-space:nowrap;min-width:50px;text-align:right}
+    .empty-state{text-align:center;padding:4rem 2rem;color:var(--muted)}
+    footer{border-top:1px solid var(--border);padding:2rem 6vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+    .footer-logo{font-weight:900;font-size:.95rem}
+    .footer-copy{font-size:.75rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="laliga-logo.jpg" alt="LaLiga" style="height:26px;width:auto;mix-blend-mode:screen;">
+    <span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Dashboard</a>
+    <a href="players.html">Jugadores</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="schedule.html" class="active">Fixture</a>
+    <a href="dfs.html">DFS</a>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="page-label">Próximas 2 semanas</div>
+  <h1 class="page-title">Fixture <span>2025-26</span></h1>
+</div>
+<div class="controls">
+  <div class="filter-tabs">
+    <button class="tab active" data-league="all">Todos</button>
+    <button class="tab" data-league="140">🇪🇸 La Liga</button>
+    <button class="tab" data-league="2">🏆 Champions</button>
+    <button class="tab" data-league="143">🥈 Copa</button>
+  </div>
+</div>
+<div class="content" id="content">
+  <div class="empty-state">Cargando fixture...</div>
+</div>
+<footer>
+  <div class="footer-logo"><span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span></div>
+  <div class="footer-copy">© 2025 La Liga DataStorm · Datos: API-Football</div>
+</footer>
+<script>
+// Demo data: próximas fechas ficticias a partir de hoy
+const today = new Date();
+function addDays(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r}
+function fmtDate(d){return d.toISOString().split('T')[0]}
+const DEMO=[
+  {league_id:140,league:'La Liga',home:'Real Madrid',away:'FC Barcelona',date:addDays(today,2).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:2,league:'Champions League',home:'Real Madrid',away:'Bayern München',date:addDays(today,4).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:140,league:'La Liga',home:'Atlético de Madrid',away:'Athletic Club',date:addDays(today,5).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:143,league:'Copa del Rey',home:'FC Barcelona',away:'Sevilla FC',date:addDays(today,6).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:140,league:'La Liga',home:'Real Betis',away:'Villarreal CF',date:addDays(today,7).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:2,league:'Champions League',home:'FC Barcelona',away:'Inter de Milán',date:addDays(today,9).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:140,league:'La Liga',home:'Valencia CF',away:'Sevilla FC',date:addDays(today,10).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+  {league_id:140,league:'La Liga',home:'Real Sociedad',away:'Celta de Vigo',date:addDays(today,12).toISOString().replace('T',' ').substring(0,16),status:'NS'},
+];
+let allFixtures=[];
+let activeLeague='all';
+const LEAGUE_CLASS={140:'league-laliga',2:'league-ucl',143:'league-copa'};
+function toArgentina(dateStr){
+  const d=new Date(dateStr);
+  return d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Argentina/Buenos_Aires'});
+}
+function fmtDateLabel(dateStr){
+  const d=new Date(dateStr);
+  return d.toLocaleDateString('es-AR',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Argentina/Buenos_Aires'}).replace(/^\w/,c=>c.toUpperCase());
+}
+function groupByDate(fixtures){
+  const groups={};
+  fixtures.forEach(f=>{
+    const key=f.date.substring(0,10);
+    if(!groups[key])groups[key]=[];
+    groups[key].push(f);
+  });
+  return groups;
+}
+function render(){
+  const src=activeLeague==='all'?allFixtures:allFixtures.filter(f=>String(f.league_id)===activeLeague);
+  const content=document.getElementById('content');
+  if(!src.length){content.innerHTML='<div class="empty-state">No hay partidos para esta competición en las próximas 2 semanas.</div>';return}
+  const groups=groupByDate(src);
+  content.innerHTML=Object.entries(groups).sort((a,b)=>a[0].localeCompare(b[0])).map(([date,fixes])=>`
+    <div class="date-group">
+      <div class="date-label">${fmtDateLabel(date+'T12:00:00')}</div>
+      ${fixes.map(f=>`<div class="match-row">
+        <span class="match-league ${LEAGUE_CLASS[f.league_id]||''}">${f.league}</span>
+        <div class="match-teams">
+          <span class="team-n">${f.home}</span>
+          <span class="vs">vs</span>
+          <span class="team-n">${f.away}</span>
+        </div>
+        <span class="match-time">${toArgentina(f.date)}</span>
+      </div>`).join('')}
+    </div>
+  `).join('');
+}
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  activeLeague=btn.dataset.league;
+  render();
+}));
+async function init(){
+  try{
+    const data=await fetch('data/upcoming.json').then(r=>r.ok?r.json():null).catch(()=>null);
+    allFixtures=data&&data.fixtures&&data.fixtures.length?data.fixtures:DEMO;
+  }catch(e){allFixtures=DEMO}
+  render();
+}
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jugadores La Liga 2025-26 — Goles, Asistencias y Stats | La Liga DataStorm</title>
+  <meta name="description" content="Estadísticas completas de jugadores de La Liga 2025-26. Goleadores, asistidores, rating y métricas avanzadas para tu fantasy.">
+  <meta property="og:title" content="Jugadores La Liga — La Liga DataStorm">
+  <meta property="og:description" content="Stats completas: goles, asistencias, rating y más de todos los jugadores de La Liga.">
+  <meta property="og:url" content="https://ligadatastorm.com/players.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://ligadatastorm.com/players.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E8644E'/%3E%3Cstop offset='100%25' stop-color='%238E11F5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='26' fill='white'%3ELD%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--liga:#E8644E;--storm:#8E11F5;--bg:#08080f;--bg2:#0f0f1a;--bg3:#161625;--card:#12121f;--border:rgba(255,255,255,0.07);--text:#f0f0f8;--muted:#7070a0;--grad:linear-gradient(135deg,#E8644E,#8E11F5)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(8,8,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:.4rem}
+    .brand-l{color:var(--liga)}.brand-s{color:var(--storm)}
+    .nav-links{display:flex;gap:.25rem}
+    .nav-links a{padding:.4rem .8rem;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+    .nav-links a.active{color:var(--liga);background:rgba(232,100,78,.08)}
+    .page-header{padding:4rem 6vw 2.5rem;background:linear-gradient(180deg,rgba(142,17,245,.08) 0%,transparent 100%);border-bottom:1px solid var(--border)}
+    .page-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--liga);margin-bottom:.5rem}
+    .page-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-2px}
+    .page-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .controls{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;padding:1.2rem 6vw;border-bottom:1px solid var(--border);background:var(--bg2);position:sticky;top:64px;z-index:50}
+    .search-box{flex:1;min-width:180px;max-width:300px;display:flex;align-items:center;gap:.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:.5rem .85rem}
+    .search-box input{background:none;border:none;outline:none;color:var(--text);font-size:.85rem;font-family:inherit;width:100%}
+    .search-box input::placeholder{color:var(--muted)}
+    .filter-tabs{display:flex;gap:.3rem}
+    .tab{padding:.4rem .9rem;border-radius:7px;font-size:.78rem;font-weight:700;background:transparent;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+    .tab.active{background:var(--grad);color:#fff;border-color:transparent}
+    .sort-select{padding:.4rem .85rem;border-radius:7px;font-size:.78rem;font-weight:600;background:var(--bg3);border:1px solid var(--border);color:var(--text);cursor:pointer;outline:none}
+    .count-badge{margin-left:auto;font-size:.75rem;color:var(--muted)}
+    .table-wrap{padding:2rem 6vw}
+    .players-table{width:100%;border-collapse:collapse}
+    .players-table th{padding:.75rem 1rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap}
+    .players-table th:hover{color:var(--text)}
+    .players-table th.sorted .sort-arrow{color:var(--liga)}
+    .players-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border);font-size:.88rem;vertical-align:middle}
+    .players-table tr:hover td{background:rgba(255,255,255,.02)}
+    .players-table tr:last-child td{border-bottom:none}
+    .player-cell{display:flex;align-items:center;gap:.85rem}
+    .player-photo{width:38px;height:38px;border-radius:50%;object-fit:cover;background:var(--bg3);border:1px solid var(--border);flex-shrink:0}
+    .player-photo-placeholder{width:38px;height:38px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .pname{font-weight:700;font-size:.9rem}
+    .pclub{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+    .rank-cell{font-weight:900;color:var(--muted);min-width:32px}
+    .r1{color:#FFD700}.r2{color:#aaa}.r3{color:#cd7f32}
+    .stat-main{font-weight:700;font-size:1rem;color:var(--liga)}
+    .stat-sec{font-weight:600;color:var(--text)}
+    .rating-badge{display:inline-block;padding:.2rem .55rem;border-radius:6px;font-size:.75rem;font-weight:700}
+    .rating-high{background:rgba(80,230,100,.15);color:#50e664}
+    .rating-mid{background:rgba(255,200,0,.12);color:#ffd94d}
+    .rating-low{background:rgba(232,100,78,.15);color:var(--liga)}
+    .form-dots{display:flex;gap:.2rem}
+    .form-dot{width:8px;height:8px;border-radius:50%}
+    .fw{background:#50e664}.fd{background:#ffd94d}.fl{background:var(--liga)}
+    footer{border-top:1px solid var(--border);padding:2rem 6vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+    .footer-logo{font-weight:900;font-size:.95rem}
+    .footer-copy{font-size:.75rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="laliga-logo.jpg" alt="LaLiga" style="height:26px;width:auto;mix-blend-mode:screen;">
+    <span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Dashboard</a>
+    <a href="players.html" class="active">Jugadores</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="schedule.html">Fixture</a>
+    <a href="dfs.html">DFS</a>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="page-label">Temporada 2025-26</div>
+  <h1 class="page-title">Estadísticas de <span>jugadores</span></h1>
+</div>
+<div class="controls">
+  <div class="search-box"><span style="color:var(--muted)">🔍</span><input type="text" id="search" placeholder="Buscar jugador..."></div>
+  <div class="filter-tabs">
+    <button class="tab active" data-stat="goals">⚽ Goleadores</button>
+    <button class="tab" data-stat="assists">🎯 Asistidores</button>
+    <button class="tab" data-stat="rating">⭐ Rating</button>
+  </div>
+  <select class="sort-select" id="sort-dir"><option value="desc">Mayor → menor</option><option value="asc">Menor → mayor</option></select>
+  <span class="count-badge" id="count-badge">— jugadores</span>
+</div>
+<div class="table-wrap">
+  <table class="players-table">
+    <thead><tr>
+      <th style="width:40px">#</th>
+      <th>Jugador</th>
+      <th data-col="goals" class="sorted">⚽ Goles <span class="sort-arrow">↓</span></th>
+      <th data-col="assists">🎯 Asist. <span class="sort-arrow">↕</span></th>
+      <th data-col="games">PJ <span class="sort-arrow">↕</span></th>
+      <th data-col="rating">⭐ Rating <span class="sort-arrow">↕</span></th>
+      <th>Forma</th>
+    </tr></thead>
+    <tbody id="players-tbody"><tr><td colspan="7" style="text-align:center;padding:3rem;color:var(--muted)">Cargando...</td></tr></tbody>
+  </table>
+</div>
+<footer>
+  <div class="footer-logo"><span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span></div>
+  <div class="footer-copy">© 2025 La Liga DataStorm · Datos: API-Football</div>
+</footer>
+<script>
+const DEMO=[
+  {name:'Kylian Mbappé',team:'Real Madrid',goals:28,assists:9,games:32,rating:'8.5'},
+  {name:'Robert Lewandowski',team:'FC Barcelona',goals:24,assists:5,games:30,rating:'8.1'},
+  {name:'Vinícius Jr.',team:'Real Madrid',goals:18,assists:12,games:31,rating:'8.3'},
+  {name:'Antoine Griezmann',team:'Atlético',goals:16,assists:7,games:29,rating:'7.9'},
+  {name:'Jude Bellingham',team:'Real Madrid',goals:14,assists:8,games:27,rating:'8.2'},
+  {name:'Pedri',team:'FC Barcelona',goals:8,assists:14,games:28,rating:'8.0'},
+  {name:'Álvaro Morata',team:'Atlético',goals:13,assists:4,games:30,rating:'7.5'},
+  {name:'Ferran Torres',team:'FC Barcelona',goals:10,assists:6,games:25,rating:'7.3'},
+];
+let allPlayers=[],currentStat='goals',sortDir='desc',searchQ='';
+const rClass=r=>{const n=parseFloat(r)||0;return n>=8?'rating-high':n>=7?'rating-mid':'rating-low'};
+const formDots=f=>{if(!f)return'<span style="color:var(--muted);font-size:.7rem">—</span>';return'<div class="form-dots">'+f.slice(-5).split('').map(c=>`<div class="form-dot ${c==='W'?'fw':c==='D'?'fd':'fl'}"></div>`).join('')+'</div>'};
+function render(){
+  let src=[...allPlayers];
+  if(searchQ)src=src.filter(p=>p.name.toLowerCase().includes(searchQ));
+  src.sort((a,b)=>{const av=parseFloat(a[currentStat])||0,bv=parseFloat(b[currentStat])||0;return sortDir==='desc'?bv-av:av-bv});
+  document.getElementById('count-badge').textContent=`${src.length} jugadores`;
+  const tbody=document.getElementById('players-tbody');
+  tbody.innerHTML=src.map((p,i)=>{
+    const rc=i===0?'r1':i===1?'r2':i===2?'r3':'';
+    const rat=p.rating?parseFloat(p.rating).toFixed(1):'—';
+    return`<tr>
+      <td class="rank-cell ${rc}">${i+1}</td>
+      <td><div class="player-cell">${p.photo?`<img class="player-photo" src="${p.photo}" alt="${p.name}">`:'<div class="player-photo-placeholder">⭐</div>'}<div><div class="pname">${p.name}</div><div class="pclub">${p.team||''}</div></div></div></td>
+      <td class="${currentStat==='goals'?'stat-main':'stat-sec'}">${p.goals??0}</td>
+      <td class="${currentStat==='assists'?'stat-main':'stat-sec'}">${p.assists??0}</td>
+      <td class="stat-sec">${p.games??0}</td>
+      <td><span class="rating-badge ${rClass(rat)}">${rat}</span></td>
+      <td>${formDots(p.form)}</td>
+    </tr>`;
+  }).join('')||'<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">Sin resultados.</td></tr>';
+}
+function updateHeaders(){
+  document.querySelectorAll('.players-table th[data-col]').forEach(th=>{
+    const col=th.dataset.col;
+    th.classList.toggle('sorted',col===currentStat);
+    th.querySelector('.sort-arrow').textContent=col===currentStat?(sortDir==='desc'?'↓':'↑'):'↕';
+  });
+}
+document.getElementById('search').addEventListener('input',e=>{searchQ=e.target.value.toLowerCase();render()});
+document.getElementById('sort-dir').addEventListener('change',e=>{sortDir=e.target.value;render()});
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  currentStat=btn.dataset.stat;updateHeaders();render();
+}));
+document.querySelectorAll('.players-table th[data-col]').forEach(th=>th.addEventListener('click',()=>{
+  const col=th.dataset.col;
+  if(currentStat===col)sortDir=sortDir==='desc'?'asc':'desc';else{currentStat=col;sortDir='desc';}
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.stat===col));
+  updateHeaders();render();
+}));
+async function init(){
+  try{
+    const[sc,as]=await Promise.all([
+      fetch('data/scorers.json').then(r=>r.ok?r.json():null).catch(()=>null),
+      fetch('data/assisters.json').then(r=>r.ok?r.json():null).catch(()=>null),
+    ]);
+    if(sc&&sc.players&&sc.players.length){
+      const byName={};
+      (sc.players||[]).forEach(p=>byName[p.name]={...p});
+      (as&&as.players||[]).forEach(p=>{if(byName[p.name])byName[p.name].assists=p.assists;else byName[p.name]={...p}});
+      allPlayers=Object.values(byName);
+    }else{allPlayers=DEMO}
+  }catch(e){allPlayers=DEMO}
+  render();updateHeaders();
+}
+init();
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--liga:#E8644E;--storm:#8E11F5;--bg:#08080f;--bg2:#0f0f1a;--border:rgba(255,255,255,0.07);--text:#f0f0f8;--muted:#7070a0;--grad:linear-gradient(135deg,#E8644E,#8E11F5)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(8,8,15,.9);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .nav-logo{font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:.45rem}
+    .brand-l{color:var(--liga)}.brand-s{color:var(--storm)}
+    .nav-links{display:flex;gap:.25rem}
+    .nav-links a{padding:.45rem .85rem;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,.07)}
+    .nav-links a.active{color:var(--liga)}
+    .coming{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:4rem 2rem;text-align:center}
+    .coming-icon{font-size:3rem}
+    .coming-title{font-size:2rem;font-weight:900;letter-spacing:-1.5px}
+    .coming-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .coming-sub{color:var(--muted);font-size:.95rem}
+    .btn{padding:.7rem 1.6rem;border-radius:10px;font-size:.9rem;font-weight:700;background:var(--grad);color:#fff;border:none;cursor:pointer;text-decoration:none;margin-top:.5rem;display:inline-block}
+  </style>
+</head>
+<body>

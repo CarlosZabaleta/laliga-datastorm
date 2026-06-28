@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picks DFS La Liga 2025-26 — Daily Fantasy España | La Liga DataStorm</title>
+  <meta name="description" content="Picks diarios para tu equipo DFS de La Liga. Los mejores jugadores a elegir según partidos, forma reciente y stats de la temporada.">
+  <meta property="og:title" content="Picks DFS La Liga — La Liga DataStorm">
+  <meta property="og:description" content="Picks diarios para daily fantasy fútbol: los mejores jugadores de La Liga según datos reales.">
+  <meta property="og:url" content="https://ligadatastorm.com/dfs.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://ligadatastorm.com/dfs.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E8644E'/%3E%3Cstop offset='100%25' stop-color='%238E11F5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='26' fill='white'%3ELD%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--liga:#E8644E;--storm:#8E11F5;--bg:#08080f;--bg2:#0f0f1a;--bg3:#161625;--card:#12121f;--border:rgba(255,255,255,0.07);--text:#f0f0f8;--muted:#7070a0;--grad:linear-gradient(135deg,#E8644E,#8E11F5)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(8,8,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:.4rem}
+    .brand-l{color:var(--liga)}.brand-s{color:var(--storm)}
+    .nav-links{display:flex;gap:.25rem}
+    .nav-links a{padding:.4rem .8rem;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+    .nav-links a.active{color:var(--liga);background:rgba(232,100,78,.08)}
+    .page-header{padding:4rem 6vw 2.5rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+    .page-header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,100,78,.12),rgba(142,17,245,.12));z-index:0}
+    .page-header>*{position:relative;z-index:1}
+    .page-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--liga);margin-bottom:.5rem}
+    .page-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-2px}
+    .page-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .page-sub{color:var(--muted);font-size:.9rem;margin-top:.5rem}
+    .content{padding:2rem 6vw 3rem;max-width:1100px;margin:0 auto}
+    .section-title{font-size:1.1rem;font-weight:900;margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem}
+    .section-title::before{content:'';display:block;width:4px;height:20px;background:var(--grad);border-radius:2px}
+    /* DFS Pick cards */
+    .picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-bottom:3rem}
+    .pick-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+    .pick-card:hover{border-color:rgba(232,100,78,.4);transform:translateY(-2px)}
+    .pick-card::after{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .2s}
+    .pick-pos-badge{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+    .pick-fire{position:absolute;top:.85rem;right:.85rem;font-size:1rem}
+    .pick-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--bg3);border:2px solid var(--border);margin-bottom:.75rem}
+    .pick-photo-ph{width:52px;height:52px;border-radius:50%;background:var(--bg3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.75rem}
+    .pick-name{font-weight:900;font-size:.95rem;line-height:1.2;margin-bottom:.2rem}
+    .pick-team{font-size:.72rem;color:var(--muted);margin-bottom:.75rem}
+    .pick-stats{display:flex;gap:.75rem}
+    .pick-stat{display:flex;flex-direction:column;align-items:center}
+    .pick-stat-val{font-size:1.1rem;font-weight:900;color:var(--liga)}
+    .pick-stat-lbl{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+    .pick-reason{font-size:.72rem;color:var(--muted);margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border);line-height:1.4}
+    /* Value table */
+    .value-table{width:100%;border-collapse:collapse;margin-bottom:3rem}
+    .value-table th{padding:.7rem .85rem;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border)}
+    .value-table td{padding:.8rem .85rem;border-bottom:1px solid var(--border);font-size:.87rem;vertical-align:middle}
+    .value-table tr:hover td{background:rgba(255,255,255,.02)}
+    .value-table tr:last-child td{border-bottom:none}
+    .vcell{display:flex;align-items:center;gap:.65rem}
+    .vphoto{width:30px;height:30px;border-radius:50%;object-fit:cover;background:var(--bg3);flex-shrink:0}
+    .vphoto-ph{width:30px;height:30px;border-radius:50%;background:var(--bg3);flex-shrink:0}
+    .vname{font-weight:700}
+    .vteam{font-size:.72rem;color:var(--muted)}
+    .score-bar{height:6px;border-radius:3px;background:var(--bg3);overflow:hidden;width:80px;flex-shrink:0}
+    .score-fill{height:100%;background:var(--grad);border-radius:3px}
+    .score-txt{font-weight:700;font-size:.88rem;min-width:28px;text-align:right}
+    .tag{display:inline-block;padding:.15rem .45rem;border-radius:4px;font-size:.65rem;font-weight:700;text-transform:uppercase}
+    .tag-hot{background:rgba(232,100,78,.2);color:var(--liga)}
+    .tag-val{background:rgba(142,17,245,.2);color:#b99bf8}
+    .tag-safe{background:rgba(80,230,100,.15);color:#50e664}
+    /* disclaimer */
+    .disclaimer{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;font-size:.78rem;color:var(--muted);margin-bottom:2rem;line-height:1.6}
+    footer{border-top:1px solid var(--border);padding:2rem 6vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+    .footer-logo{font-weight:900;font-size:.95rem}
+    .footer-copy{font-size:.75rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="laliga-logo.jpg" alt="LaLiga" style="height:26px;width:auto;mix-blend-mode:screen;">
+    <span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Dashboard</a>
+    <a href="players.html">Jugadores</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="schedule.html">Fixture</a>
+    <a href="dfs.html" class="active">DFS</a>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="page-label">Daily Fantasy Fútbol</div>
+  <h1 class="page-title">Picks <span>DFS</span> del día</h1>
+  <p class="page-sub">Selección diaria basada en forma, enfrentamiento y estadísticas de La Liga.</p>
+</div>
+<div class="content">
+  <div class="disclaimer">
+    ⚠️ Los picks se generan automáticamente a partir de estadísticas públicas. No garantizamos resultados. Jugá con responsabilidad.
+  </div>
+
+  <div class="section-title">🔥 Picks destacados</div>
+  <div class="picks-grid" id="picks-grid">
+    <!-- generado por JS -->
+  </div>
+
+  <div class="section-title">📊 Ranking de valor</div>
+  <table class="value-table">
+    <thead><tr>
+      <th>Jugador</th>
+      <th>Pos.</th>
+      <th>Goles</th>
+      <th>Asist.</th>
+      <th>Rating</th>
+      <th>Valor DFS</th>
+      <th>Tag</th>
+    </tr></thead>
+    <tbody id="value-tbody">
+      <tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">Cargando...</td></tr>
+    </tbody>
+  </table>
+</div>
+<footer>
+  <div class="footer-logo"><span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span></div>
+  <div class="footer-copy">© 2025 La Liga DataStorm · Datos: API-Football</div>
+</footer>
+<script>
+const DEMO=[
+  {name:'Kylian Mbappé',team:'Real Madrid',goals:28,assists:9,games:32,rating:'8.5',photo:null,position:'DEL',reason:'En casa vs rival débil. 4 goles en los últimos 3 partidos.'},
+  {name:'Vinícius Jr.',team:'Real Madrid',goals:18,assists:12,games:31,rating:'8.3',photo:null,position:'DEL',reason:'Máximo asistidor del Real Madrid. Partido propicio para desborde.'},
+  {name:'Jude Bellingham',team:'Real Madrid',goals:14,assists:8,games:27,rating:'8.2',photo:null,position:'MED',reason:'Llega goleando. 3 puntos en los últimos 2 encuentros.'},
+  {name:'Robert Lewandowski',team:'FC Barcelona',goals:24,assists:5,games:30,rating:'8.1',photo:null,position:'DEL',reason:'Récord histórico en córner dentro del área. Fijo para DFS.'},
+  {name:'Pedri',team:'FC Barcelona',goals:8,assists:14,games:28,rating:'8.0',photo:null,position:'MED',reason:'Mayor asistidor del Barça. Presencia continua en el juego.'},
+  {name:'Antoine Griezmann',team:'Atlético',goals:16,assists:7,games:29,rating:'7.9',photo:null,position:'DEL',reason:'Capitán del Atlético. Constante en goles y asistencias.'},
+  {name:'Álvaro Morata',team:'Atlético',goals:13,assists:4,games:30,rating:'7.5',photo:null,position:'DEL',reason:'Alternativa de valor bajo costo frente a rival de mitad de tabla.'},
+  {name:'Isco',team:'Real Betis',goals:9,assists:11,games:31,rating:'7.7',photo:null,position:'MED',reason:'Creativo y con buen número de asistencias. Opción diferencial.'},
+];
+const POS_ORDER=['POR','DEF','MED','DEL'];
+const TAGS=['hot','val','safe'];
+function dfsScore(p){
+  return (parseFloat(p.goals)||0)*6+(parseFloat(p.assists)||0)*3+(parseFloat(p.rating)||7)*2;
+}
+function tagFor(p,i){if(i<2)return'hot';if(parseFloat(p.rating)>=8)return'safe';return'val'}
+function tagLabel(t){return t==='hot'?'🔥 Caliente':t==='safe'?'✅ Seguro':'💎 Valor'}
+function renderPicks(players){
+  const top=players.slice(0,6);
+  document.getElementById('picks-grid').innerHTML=top.map((p,i)=>`<div class="pick-card">
+    <div class="pick-pos-badge">${p.position||'—'}</div>
+    <div class="pick-fire">${i<2?'🔥':i<4?'⭐':''}</div>
+    ${p.photo?`<img class="pick-photo" src="${p.photo}" alt="${p.name}">`:`<div class="pick-photo-ph">⚽</div>`}
+    <div class="pick-name">${p.name}</div>
+    <div class="pick-team">${p.team}</div>
+    <div class="pick-stats">
+      <div class="pick-stat"><span class="pick-stat-val">${p.goals??0}</span><span class="pick-stat-lbl">Goles</span></div>
+      <div class="pick-stat"><span class="pick-stat-val">${p.assists??0}</span><span class="pick-stat-lbl">Asist</span></div>
+      <div class="pick-stat"><span class="pick-stat-val">${p.rating?parseFloat(p.rating).toFixed(1):'—'}</span><span class="pick-stat-lbl">Rating</span></div>
+    </div>
+    ${p.reason?`<div class="pick-reason">${p.reason}</div>`:''}
+  </div>`).join('');
+}
+function renderTable(players){
+  const maxScore=Math.max(...players.map(dfsScore));
+  document.getElementById('value-tbody').innerHTML=players.map((p,i)=>{
+    const score=dfsScore(p);
+    const pct=maxScore>0?Math.round(score/maxScore*100):0;
+    const tag=tagFor(p,i);
+    return`<tr>
+      <td><div class="vcell">${p.photo?`<img class="vphoto" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'">`:`<div class="vphoto-ph"></div>`}<div><div class="vname">${p.name}</div><div class="vteam">${p.team}</div></div></div></td>
+      <td style="color:var(--muted);font-size:.75rem;font-weight:700">${p.position||'—'}</td>
+      <td style="font-weight:700">${p.goals??0}</td>
+      <td style="font-weight:700">${p.assists??0}</td>
+      <td style="font-weight:700">${p.rating?parseFloat(p.rating).toFixed(1):'—'}</td>
+      <td><div style="display:flex;align-items:center;gap:.5rem"><div class="score-bar"><div class="score-fill" style="width:${pct}%"></div></div><span class="score-txt">${Math.round(score)}</span></div></td>
+      <td><span class="tag tag-${tag}">${tagLabel(tag)}</span></td>
+    </tr>`;
+  }).join('');
+}
+async function init(){
+  try{
+    const[sc,as]=await Promise.all([
+      fetch('data/scorers.json').then(r=>r.ok?r.json():null).catch(()=>null),
+      fetch('data/assisters.json').then(r=>r.ok?r.json():null).catch(()=>null),
+    ]);
+    let players=[];
+    if(sc&&sc.players&&sc.players.length){
+      const byName={};
+      (sc.players||[]).forEach(p=>byName[p.name]={...p,position:'DEL'});
+      (as&&as.players||[]).forEach(p=>{if(byName[p.name])byName[p.name].assists=p.assists;else byName[p.name]={...p,position:'MED'}});
+      players=Object.values(byName);
+    }else{players=DEMO}
+    players.sort((a,b)=>dfsScore(b)-dfsScore(a));
+    renderPicks(players);
+    renderTable(players);
+  }catch(e){
+    renderPicks(DEMO.sort((a,b)=>dfsScore(b)-dfsScore(a)));
+    renderTable(DEMO.sort((a,b)=>dfsScore(b)-dfsScore(a)));
+  }
+}
+init();
+</script>
+</body>
+</html>

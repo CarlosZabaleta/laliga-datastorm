@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Liga DataStorm — Estadísticas, Goleadores y Picks DFS 2025-26</title>
+  <meta name="description" content="Estadísticas en tiempo real de La Liga, Champions League y Copa del Rey. Goleadores, clasificación, fixture y picks DFS para la temporada 2025-26.">
+  <meta name="keywords" content="La Liga estadísticas, goleadores La Liga 2025, clasificación La Liga, fantasy fútbol España, picks DFS fútbol, La Liga DataStorm">
+  <meta name="author" content="La Liga DataStorm">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ligadatastorm.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="La Liga DataStorm — Estadísticas y Picks DFS 2025-26">
+  <meta property="og:description" content="Dashboard de fútbol español con goleadores, clasificación, fixture y picks para tu fantasy. Datos de La Liga, Champions y Copa del Rey.">
+  <meta property="og:url" content="https://ligadatastorm.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="La Liga DataStorm">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La Liga DataStorm — Estadísticas y Picks DFS 2025-26">
+  <meta name="twitter:description" content="Dashboard de fútbol español: goleadores, clasificación, fixture y fantasy picks.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#E8644E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LigaDataStorm">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "La Liga DataStorm",
+    "url": "https://ligadatastorm.com",
+    "description": "Estadísticas en tiempo real de La Liga 2025-26: goleadores, clasificación, fixture y picks DFS.",
+    "inLanguage": "es",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ligadatastorm.com/players.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "La Liga DataStorm",
+      "url": "https://ligadatastorm.com"
+    }
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E8644E'/%3E%3Cstop offset='100%25' stop-color='%238E11F5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='26' fill='white'%3ELD%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --liga:    #E8644E;
+      --storm:   #8E11F5;
+      --magenta: #D518EE;
+      --lavender:#B99BF8;
+      --bg:      #08080f;
+      --bg2:     #0f0f1a;
+      --bg3:     #161625;
+      --card:    #12121f;
+      --border:  rgba(255,255,255,0.07);
+      --text:    #f0f0f8;
+      --muted:   #7070a0;
+      --grad: linear-gradient(135deg, var(--liga), var(--storm));
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: rgba(8,8,15,0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .nav-logo {
+      font-size: 1.15rem; font-weight: 900; letter-spacing: -0.5px;
+      display: flex; align-items: center; gap: .45rem;
+    }
+    .nav-logo .brand-l { color: var(--liga); }
+    .nav-logo .brand-s { color: var(--storm); }
+    .nav-links { display: flex; gap: .25rem; }
+    .nav-links a {
+      padding: .45rem .85rem;
+      border-radius: 8px;
+      font-size: .85rem; font-weight: 600;
+      color: var(--muted);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+    }
+    .nav-links a.active { color: var(--liga); }
+    .nav-cta {
+      padding: .45rem 1.1rem;
+      border-radius: 8px;
+      font-size: .85rem; font-weight: 700;
+      background: var(--grad);
+      color: #fff;
+      border: none; cursor: pointer;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh; min-height: 640px;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 0 6vw;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .22;
+      filter: saturate(0.4);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(8,8,15,.95) 40%, rgba(142,17,245,.18) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .9rem;
+      border-radius: 99px;
+      border: 1px solid rgba(232,100,78,.35);
+      background: rgba(232,100,78,.1);
+      font-size: .75rem; font-weight: 700;
+      color: var(--liga);
+      letter-spacing: .05em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -3px;
+      margin-bottom: 1.2rem;
+      animation: fadeUp .6s .15s ease both;
+    }
+    .hero-title .ht-liga  { color: var(--liga); }
+    .hero-title .ht-storm { color: var(--storm); }
+    .hero-title .ht-white { color: #fff; }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 480px; line-height: 1.65;
+      margin-bottom: 2.2rem;
+      animation: fadeUp .6s .3s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; align-items: center;
+      animation: fadeUp .6s .45s ease both;
+    }
+    .btn-primary {
+      padding: .75rem 1.8rem;
+      border-radius: 10px;
+      font-size: .95rem; font-weight: 700;
+      background: var(--grad);
+      color: #fff; border: none; cursor: pointer;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-ghost {
+      padding: .75rem 1.8rem;
+      border-radius: 10px;
+      font-size: .95rem; font-weight: 700;
+      background: rgba(255,255,255,.06);
+      color: var(--text); border: 1px solid var(--border); cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      font-size: .7rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll svg { opacity: .5; }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: .65rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .ticker-wrap::before, .ticker-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+    }
+    .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--bg2), transparent); }
+    .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--bg2), transparent); }
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: 0 2rem;
+      font-size: .8rem; font-weight: 600;
+      white-space: nowrap;
+      border-right: 1px solid var(--border);
+    }
+    .ticker-item .t-team { color: var(--muted); }
+    .ticker-item .t-score { color: var(--text); }
+    .ticker-item .t-live {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      padding: .15rem .45rem; border-radius: 4px;
+      background: rgba(232,100,78,.2); color: var(--liga);
+    }
+    .ticker-item .t-fin {
+      font-size: .65rem; color: var(--muted);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-cell {
+      background: var(--bg2);
+      padding: 1.8rem 2rem;
+      display: flex; flex-direction: column; gap: .25rem;
+      position: relative; overflow: hidden;
+    }
+    .stat-cell::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--grad); opacity: 0;
+      transition: opacity .3s;
+    }
+    .stat-cell:hover::before { opacity: 1; }
+    .stat-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .stat-value { font-size: 2.4rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+    .stat-value span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-desc { font-size: .78rem; color: var(--muted); }
+
+    /* ── SECTION ── */
+    section { padding: 5rem 6vw; }
+    .section-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--liga); margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900; letter-spacing: -1.5px; line-height: 1.1;
+    }
+    .section-link {
+      font-size: .82rem; font-weight: 700; color: var(--storm);
+      display: flex; align-items: center; gap: .3rem;
+      padding-bottom: 4px;
+      transition: opacity .2s;
+    }
+    .section-link:hover { opacity: .7; }
+
+    /* ── MATCHES ── */
+    .matches-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .match-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color .2s, transform .2s;
+      cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .match-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--grad); opacity: 0;
+      transition: opacity .25s;
+    }
+    .match-card:hover { border-color: rgba(232,100,78,.3); transform: translateY(-2px); }
+    .match-card:hover::before { opacity: .03; }
+    .match-card > * { position: relative; }
+    .match-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .match-comp {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .comp-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+    }
+    .comp-laliga  { background: #FF4500; }
+    .comp-copa    { background: #FFD700; }
+    .comp-ucl     { background: #0050FF; }
+    .match-time {
+      font-size: .75rem; font-weight: 600; color: var(--muted);
+    }
+    .match-time.live {
+      color: var(--liga);
+      display: flex; align-items: center; gap: .3rem;
+    }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--liga);
+      animation: pulse 1.4s infinite;
+    }
+    .match-teams {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: .75rem;
+    }
+    .match-team {
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      flex: 1;
+    }
+    .team-emoji { font-size: 1.8rem; }
+    .team-name { font-size: .78rem; font-weight: 700; text-align: center; }
+    .match-score {
+      font-size: 1.9rem; font-weight: 900; letter-spacing: -1px;
+      min-width: 70px; text-align: center;
+    }
+    .match-score.live-score { color: var(--liga); }
+    .match-vs { color: var(--muted); font-weight: 700; }
+    .match-footer {
+      margin-top: 1rem; padding-top: .85rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .match-edge {
+      font-size: .72rem; font-weight: 700; color: var(--storm);
+      display: flex; align-items: center; gap: .3rem;
+    }
+    .match-diff {
+      font-size: .7rem; color: var(--muted);
+    }
+    .diff-badge {
+      display: inline-block; padding: .15rem .5rem;
+      border-radius: 5px; font-size: .68rem; font-weight: 700;
+    }
+    .diff-1 { background: rgba(80,230,100,.15); color: #50e664; }
+    .diff-2 { background: rgba(255,200,0,.15); color: #ffd94d; }
+    .diff-3 { background: rgba(232,100,78,.15); color: var(--liga); }
+
+    /* ── TOP PLAYERS ── */
+    .players-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .player-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      transition: border-color .2s, transform .2s;
+      cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .player-card:hover { border-color: rgba(142,17,245,.3); transform: translateY(-3px); }
+    .player-rank {
+      position: absolute; top: .8rem; left: .8rem;
+      font-size: .65rem; font-weight: 900;
+      width: 22px; height: 22px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .rank-1 { background: rgba(255,200,0,.2); color: #FFD700; }
+    .rank-2 { background: rgba(180,180,180,.15); color: #aaa; }
+    .rank-3 { background: rgba(180,100,50,.2); color: #cd7f32; }
+    .rank-n { background: var(--bg3); color: var(--muted); }
+    .player-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--bg3);
+      margin: 0 auto .85rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      border: 2px solid var(--border);
+      position: relative;
+    }
+    .player-avatar::after {
+      content: ''; position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: var(--grad);
+      z-index: -1; opacity: 0;
+      transition: opacity .3s;
+    }
+    .player-card:hover .player-avatar::after { opacity: 1; }
+    .player-name { font-size: .88rem; font-weight: 700; margin-bottom: .2rem; }
+    .player-club { font-size: .72rem; color: var(--muted); margin-bottom: .9rem; }
+    .player-stat-main {
+      font-size: 1.8rem; font-weight: 900; letter-spacing: -1px;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .player-stat-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+    .player-badges {
+      display: flex; justify-content: center; gap: .4rem; margin-top: .7rem;
+    }
+    .player-badge {
+      font-size: .65rem; font-weight: 700;
+      padding: .15rem .45rem; border-radius: 5px;
+    }
+    .pb-pts { background: rgba(232,100,78,.15); color: var(--liga); }
+    .pb-form { background: rgba(80,230,100,.15); color: #50e664; }
+    .pb-ucl  { background: rgba(0,80,255,.15); color: #4d90ff; }
+
+    /* ── SCHEDULE DIFFICULTY ── */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .schedule-table th {
+      padding: .7rem 1rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--muted);
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table td {
+      padding: .9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: .85rem;
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table tr:hover td { background: rgba(255,255,255,.02); }
+    .sched-team { display: flex; align-items: center; gap: .7rem; font-weight: 700; }
+    .sched-emoji { font-size: 1.2rem; }
+    .sched-weeks { display: flex; gap: .4rem; }
+    .sched-match {
+      display: flex; flex-direction: column; align-items: center;
+      gap: .15rem; min-width: 36px;
+    }
+    .sched-opp { font-size: .62rem; color: var(--muted); font-weight: 600; }
+    .sched-pill {
+      padding: .12rem .45rem; border-radius: 5px;
+      font-size: .65rem; font-weight: 700;
+    }
+    .sched-easy { background: rgba(80,230,100,.15); color: #50e664; }
+    .sched-mid  { background: rgba(255,200,0,.12); color: #ffd94d; }
+    .sched-hard { background: rgba(232,100,78,.15); color: var(--liga); }
+    .sched-score {
+      font-size: .82rem; font-weight: 700;
+      padding: .2rem .6rem; border-radius: 6px;
+      background: var(--bg3);
+    }
+    .score-easy { color: #50e664; }
+    .score-mid  { color: #ffd94d; }
+    .score-hard { color: var(--liga); }
+
+    /* ── FEATURE STRIP ── */
+    .features-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .feature-cell {
+      background: var(--card);
+      padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; gap: .8rem;
+      transition: background .2s;
+    }
+    .feature-cell:hover { background: var(--bg3); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      background: var(--bg3);
+    }
+    .feature-num { font-size: .7rem; font-weight: 700; color: var(--muted); letter-spacing: .1em; }
+    .feature-title { font-size: 1.1rem; font-weight: 800; }
+    .feature-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── CAFECITO BANNER ── */
+    .cafecito-banner {
+      margin: 0 6vw 5rem;
+      border-radius: 20px; overflow: hidden;
+    }
+    .cafecito-inner {
+      position: relative;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a0a2e 100%);
+      border: 1px solid rgba(142,17,245,.25);
+      border-radius: 20px;
+      padding: 3rem 3.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      overflow: hidden;
+    }
+    .cafecito-bg-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .13;
+      filter: saturate(.5);
+    }
+    .cafecito-inner::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(8,8,15,.92) 45%, rgba(15,10,30,.6) 100%);
+      z-index: 1; pointer-events: none;
+    }
+    .cafecito-text { position: relative; z-index: 2; }
+    .cafecito-pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .3rem .85rem; border-radius: 99px;
+      background: rgba(232,100,78,.12); border: 1px solid rgba(232,100,78,.3);
+      font-size: .72rem; font-weight: 700; color: var(--liga);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .cafecito-title {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 900; letter-spacing: -1px; line-height: 1.1;
+      margin-bottom: .7rem;
+    }
+    .cafecito-sub { font-size: .88rem; color: var(--muted); line-height: 1.6; max-width: 440px; }
+    .cafecito-btn {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; gap: .6rem; white-space: nowrap;
+      padding: .85rem 2rem; border-radius: 12px;
+      font-size: .95rem; font-weight: 800;
+      background: var(--grad);
+      color: #fff; border: none; cursor: pointer;
+      transition: opacity .2s, transform .2s;
+      flex-shrink: 0;
+    }
+    .cafecito-btn:hover { opacity: .88; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 6vw;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-size: 1rem; font-weight: 900; }
+    .footer-logo .brand-l { color: var(--liga); }
+    .footer-logo .brand-s { color: var(--storm); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: .8rem; color: var(--muted); transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: .75rem; color: var(--muted); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(.85); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .features-strip { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .stats-bar { grid-template-columns: 1fr; }
+      .cafecito-inner { flex-direction: column; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <img src="laliga-logo.jpg" alt="LaLiga" style="height:26px;width:auto;display:inline-block;vertical-align:middle;margin-right:.5rem;mix-blend-mode:screen;">
+    <span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="players.html">Jugadores</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="schedule.html">Fixture</a>
+    <a href="dfs.html">DFS</a>
+  </div>
+  <button class="nav-cta">⚽ Ver picks</button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="videofondo1.mp4" type="video/mp4">
+    <source src="videofondo2.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚡ &nbsp;La Liga · Copa del Rey · Champions League</div>
+    <h1 class="hero-title">
+      <span class="ht-white">DATOS QUE</span><br>
+      <span class="ht-liga">CAMBIAN</span><br>
+      <span class="ht-storm">EL JUEGO</span>
+    </h1>
+    <p class="hero-sub">
+      Analytics avanzado de fútbol español para tu fantasy. Rankings, fixture, picks DFS y más — todo gratis.
+    </p>
+    <div class="hero-actions">
+      <a href="players.html"><button class="btn-primary">🔍 Explorar jugadores</button></a>
+      <a href="dfs.html"><button class="btn-ghost">Ver picks de hoy</button></a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar reveal">
+  <div class="stat-cell">
+    <div class="stat-label">Jugadores analizados</div>
+    <div class="stat-value"><span class="counter" data-target="532">0</span></div>
+    <div class="stat-desc">La Liga + Copa + UCL</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-label">Partidos esta temporada</div>
+    <div class="stat-value"><span class="counter" data-target="380">0</span></div>
+    <div class="stat-desc">Solo La Liga</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-label">Métricas por jugador</div>
+    <div class="stat-value"><span class="counter" data-target="48">0</span></div>
+    <div class="stat-desc">Ataque, defensa, fisico</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-label">Picks acertados</div>
+    <div class="stat-value"><span class="counter" data-target="71">0</span>%</div>
+    <div class="stat-desc">Últimas 4 jornadas</div>
+  </div>
+</div>
+
+<!-- ── PARTIDOS HOY ── -->
+<section style="position:relative;overflow:hidden;">
+<div style="position:absolute;inset:0;background-image:url('cafecito-bg.jpg');background-size:cover;background-position:center;opacity:.05;filter:saturate(.2);pointer-events:none;"></div>
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">En vivo &amp; hoy</div>
+      <div class="section-title">Partidos del día</div>
+    </div>
+    <a href="schedule.html" class="section-link">Ver fixture completo →</a>
+  </div>
+  <div class="matches-grid" id="matches-grid"></div>
+</section>
+
+<!-- ── TOP JUGADORES ── -->
+<section style="padding-top:0;position:relative;overflow:hidden;">
+<div style="position:absolute;inset:0;background-image:url('foto2.jpeg');background-size:cover;background-position:center top;opacity:.06;filter:saturate(.3);pointer-events:none;"></div>
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Fantasy picks</div>
+      <div class="section-title">Top rendimiento</div>
+    </div>
+    <a href="players.html" class="section-link">Ver todos →</a>
+  </div>
+  <div class="players-grid" id="players-grid"></div>
+</section>
+
+<!-- ── FIXTURE DIFICULTAD ── -->
+<section style="padding-top:0">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Próximas 3 jornadas</div>
+      <div class="section-title">Dificultad de fixture</div>
+    </div>
+    <a href="schedule.html" class="section-link">Análisis completo →</a>
+  </div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;" class="reveal">
+    <table class="schedule-table" id="sched-table"></table>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section style="padding-top:0">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Plataforma</div>
+      <div class="section-title">Todo lo que necesitás</div>
+    </div>
+  </div>
+  <div class="features-strip reveal">
+    <div class="feature-cell">
+      <div class="feature-icon">📊</div>
+      <div class="feature-num">01</div>
+      <div class="feature-title">Rankings en tiempo real</div>
+      <div class="feature-desc">Clasificaciones actualizadas por jornada, posición y competición. Con métricas avanzadas que no vas a encontrar en ningún otro lado.</div>
+    </div>
+    <div class="feature-cell">
+      <div class="feature-icon">🗓️</div>
+      <div class="feature-num">02</div>
+      <div class="feature-title">Análisis de fixture</div>
+      <div class="feature-desc">Sabé qué jugadores tienen el calendario más fácil en las próximas semanas y maximizá tus puntos en fantasy.</div>
+    </div>
+    <div class="feature-cell">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-num">03</div>
+      <div class="feature-title">Picks DFS automáticos</div>
+      <div class="feature-desc">El algoritmo analiza forma, fixture y líneas de mercado para darte los mejores picks del día. Directo en Telegram.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAFECITO ── -->
+<div class="cafecito-banner reveal">
+  <a href="https://cafecito.app/zabaletac" target="_blank" rel="noopener" style="display:block">
+    <div class="cafecito-inner">
+      <img class="cafecito-bg-img" src="cafecito-bg.jpg" alt="">
+      <div class="cafecito-text">
+        <div class="cafecito-pill">☕ &nbsp;Apoyá el proyecto</div>
+        <div class="cafecito-title">
+          <span style="color:var(--liga)">La Liga</span> <span style="color:var(--storm)">DataStorm</span> es completamente gratis.
+        </div>
+        <div class="cafecito-sub">Ayudanos a mantenerlo así: si lo encontrás útil, invitame un café y mantené el sitio en juego. ¡Gracias!</div>
+      </div>
+      <button class="cafecito-btn">☕ &nbsp;Invitame un Cafecito</button>
+    </div>
+  </a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <span class="brand-l">La Liga</span><span class="brand-s">DataStorm</span>
+  </div>
+  <div class="footer-links">
+    <a href="players.html">Jugadores</a>
+    <a href="rankings.html">Rankings</a>
+    <a href="schedule.html">Fixture</a>
+    <a href="dfs.html">DFS</a>
+  </div>
+  <div class="footer-copy">© 2025 LigaDataStorm · Todos los derechos reservados</div>
+</footer>
+
+<script>
+// ── DEMO DATA (fallback si no hay JSON generado aún) ──
+const DEMO_MATCHES = [
+  { comp:'laliga', home:'Real Madrid',   away:'Atlético Madrid', scoreH:2, scoreW:1, status:'live', min:67, diff:3 },
+  { comp:'laliga', home:'FC Barcelona',  away:'Sevilla FC',      scoreH:3, scoreW:0, status:'ft',   diff:1 },
+  { comp:'ucl',    home:'Real Madrid',   away:'Bayern München',  scoreH:null, scoreW:null, status:'18:00', diff:3 },
+  { comp:'laliga', home:'Villarreal CF', away:'Athletic Club',   scoreH:null, scoreW:null, status:'20:00', diff:2 },
+  { comp:'copa',   home:'Valencia CF',   away:'Betis',           scoreH:null, scoreW:null, status:'21:30', diff:1 },
+  { comp:'laliga', home:'Girona FC',     away:'Getafe CF',       scoreH:1, scoreW:1, status:'ft', diff:2 },
+];
+const DEMO_PLAYERS = [
+  { name:'Kylian Mbappé',       club:'Real Madrid',   stat:28, label:'Goles' },
+  { name:'Robert Lewandowski',  club:'FC Barcelona',  stat:24, label:'Goles' },
+  { name:'Vinícius Jr.',        club:'Real Madrid',   stat:18, label:'Goles+asist' },
+  { name:'Pedri',               club:'FC Barcelona',  stat:14, label:'Asistencias' },
+  { name:'Antoine Griezmann',   club:'Atlético',      stat:16, label:'Goles' },
+  { name:'Dani Carvajal',       club:'Real Madrid',   stat:92, label:'Fantasy pts' },
+];
+const DEMO_SCHEDULE = [
+  { team:'Real Madrid',  opp:['Villarreal','Dortmund','Leganés'], diff:[2,3,1], score:5.8 },
+  { team:'FC Barcelona', opp:['Betis','Getafe','Bayern'],          diff:[1,1,3], score:7.2 },
+  { team:'Atlético',     opp:['Girona','Leverkusen','Celta'],       diff:[1,3,1], score:6.4 },
+  { team:'Athletic Club',opp:['Mallorca','Rayo','Alavés'],          diff:[1,1,1], score:8.1 },
+  { team:'Villarreal',   opp:['R.Madrid','Osasuna','Betis'],         diff:[3,2,2], score:4.5 },
+  { team:'Girona',       opp:['Atlético','Mallorca','Celta'],        diff:[3,1,1], score:5.2 },
+];
+
+// ── HELPERS ──
+const COMP_MAP     = { laliga:'La Liga', copa:'Copa del Rey', ucl:'Champions', 140:'La Liga', 2:'Champions', 143:'Copa del Rey' };
+const COMP_DOT_MAP = { laliga:'comp-laliga', copa:'comp-copa', ucl:'comp-ucl', 140:'comp-laliga', 2:'comp-ucl', 143:'comp-copa' };
+const DIFF_LABELS  = { 1:'Fácil', 2:'Medio', 3:'Difícil' };
+const DIFF_CLASSES = { 1:'sched-easy', 2:'sched-mid', 3:'sched-hard' };
+
+// Mapea status de API-Football a texto legible
+function fmtStatus(fix) {
+  const s = fix.status;
+  if (s === 'live' || s === '1H' || s === '2H' || s === 'HT') return 'live';
+  if (s === 'FT' || s === 'ft') return 'ft';
+  if (fix.time) {
+    const d = new Date(fix.time);
+    return d.toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
+  }
+  return s || 'vs';
+}
+
+// ── RENDER: TICKER ──
+function buildTicker(fixtures) {
+  const t = document.getElementById('ticker');
+  const items = fixtures.length ? [...fixtures, ...fixtures] : [];
+  if (!items.length) { document.querySelector('.ticker-wrap').style.display='none'; return; }
+  t.innerHTML = items.map(m => {
+    const st = fmtStatus(m);
+    const live = st === 'live';
+    const scoreStr = m.score_home !== null && m.score_home !== undefined
+      ? `${m.score_home}-${m.score_away}` : 'vs';
+    return `<div class="ticker-item">
+      <span class="t-team">${m.home}</span>
+      <span class="t-score">${scoreStr}</span>
+      <span class="t-team">${m.away}</span>
+      ${live ? `<span class="t-live">🔴 ${m.elapsed}'</span>` : `<span class="t-fin">${st === 'ft' ? 'Final' : st}</span>`}
+    </div>`;
+  }).join('');
+}
+
+// ── RENDER: MATCHES ──
+function buildMatches(fixtures) {
+  const g = document.getElementById('matches-grid');
+  const src = fixtures.length ? fixtures : DEMO_MATCHES;
+  g.innerHTML = src.map(m => {
+    const comp = m.comp || m.league_id;
+    const st   = m.status ? fmtStatus(m) : m.status;
+    const live = st === 'live' || m.status === 'live';
+    const ft   = st === 'ft'   || m.status === 'ft';
+    const sh   = m.score_home ?? m.scoreH;
+    const sa   = m.score_away ?? m.scoreW;
+    const scoreStr = sh !== null && sh !== undefined
+      ? `<div class="match-score${live ? ' live-score' : ''}">${sh}–${sa}</div>`
+      : `<div class="match-score"><span class="match-vs">vs</span></div>`;
+    const diff = m.diff || 2;
+    const diffClass = diff === 1 ? 'diff-1' : diff === 3 ? 'diff-3' : 'diff-2';
+    const compKey = comp || 'laliga';
+    return `<div class="match-card">
+      <div class="match-meta">
+        <div class="match-comp">
+          <div class="comp-dot ${COMP_DOT_MAP[compKey] || 'comp-laliga'}"></div>
+          ${COMP_MAP[compKey] || m.league || 'La Liga'}
+        </div>
+        <div class="match-time${live ? ' live' : ''}">
+          ${live ? `<div class="live-dot"></div>${m.elapsed || m.min}'` : ft ? 'Final' : (m.status === '18:00' || m.status === '20:00' || m.status === '21:30') ? m.status : st}
+        </div>
+      </div>
+      <div class="match-teams">
+        <div class="match-team">
+          ${m.home_logo ? `<img src="${m.home_logo}" style="width:32px;height:32px;object-fit:contain">` : '<div class="team-emoji">⚽</div>'}
+          <div class="team-name">${m.home}</div>
+        </div>
+        ${scoreStr}
+        <div class="match-team">
+          ${m.away_logo ? `<img src="${m.away_logo}" style="width:32px;height:32px;object-fit:contain">` : '<div class="team-emoji">⚽</div>'}
+          <div class="team-name">${m.away}</div>
+        </div>
+      </div>
+      <div class="match-footer"><div></div><span class="diff-badge ${diffClass}">${DIFF_LABELS[diff]}</span></div>
+    </div>`;
+  }).join('') || '<p style="color:var(--muted);padding:1rem">No hay partidos hoy.</p>';
+}
+
+// ── RENDER: PLAYERS ──
+function buildPlayers(players) {
+  const g = document.getElementById('players-grid');
+  const src = players.length ? players : DEMO_PLAYERS;
+  g.innerHTML = src.slice(0,6).map((p, i) => {
+    const rankN = i + 1;
+    const rankClass = rankN === 1 ? 'rank-1' : rankN === 2 ? 'rank-2' : rankN === 3 ? 'rank-3' : 'rank-n';
+    const stat  = p.goals ?? p.stat;
+    const label = p.label || 'Goles';
+    const club  = p.team  || p.club || '';
+    return `<div class="player-card">
+      <div class="player-rank ${rankClass}">${rankN}</div>
+      <div class="player-avatar">
+        ${p.photo ? `<img src="${p.photo}" style="width:100%;height:100%;border-radius:50%;object-fit:cover">` : '⭐'}
+      </div>
+      <div class="player-name">${p.name}</div>
+      <div class="player-club">${club}</div>
+      <div class="player-stat-main">${stat}</div>
+      <div class="player-stat-label">${label}</div>
+      ${p.assists ? `<div class="player-badges"><span class="player-badge pb-pts">🎯 ${p.assists} asist.</span></div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ── RENDER: SCHEDULE ──
+function buildSchedule(data) {
+  const t = document.getElementById('sched-table');
+  const src = (data && data.length) ? data : DEMO_SCHEDULE;
+  const scoreClass = s => s >= 7 ? 'score-easy' : s >= 5.5 ? 'score-mid' : 'score-hard';
+  t.innerHTML = `<thead><tr>
+    <th>Equipo</th><th>Jornada +1</th><th>Jornada +2</th><th>Jornada +3</th><th>Score</th>
+  </tr></thead><tbody>
+  ${src.map(r => `<tr>
+    <td><div class="sched-team">${r.team}</div></td>
+    ${r.opp.map((o,i) => `<td><div class="sched-match">
+      <span class="sched-opp">${o}</span>
+      <span class="sched-pill ${DIFF_CLASSES[r.diff[i]]}">${DIFF_LABELS[r.diff[i]]}</span>
+    </div></td>`).join('')}
+    <td><span class="sched-score ${scoreClass(r.score)}">${r.score}</span></td>
+  </tr>`).join('')}
+  </tbody>`;
+}
+
+// ── COUNTERS ──
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = +el.dataset.target;
+    let cur = 0;
+    const inc = target / (1800 / 16);
+    const timer = setInterval(() => {
+      cur = Math.min(cur + inc, target);
+      el.textContent = Math.floor(cur);
+      if (cur >= target) clearInterval(timer);
+    }, 16);
+  });
+}
+
+// ── SCROLL REVEAL ──
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.classList.contains('stats-bar')) animateCounters();
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+// ── INIT: carga JSONs o usa demo data ──
+async function init() {
+  let todayFixtures = [], scorers = [], scheduleData = [];
+
+  try {
+    const [todayRes, scorersRes] = await Promise.all([
+      fetch('data/today.json').then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch('data/scorers.json').then(r => r.ok ? r.json() : null).catch(() => null),
+    ]);
+    if (todayRes)   todayFixtures = todayRes.fixtures  || [];
+    if (scorersRes) scorers       = scorersRes.players || [];
+  } catch(e) { /* fallback a demo data */ }
+
+  buildTicker(todayFixtures);
+  buildMatches(todayFixtures);
+  buildPlayers(scorers);
+  buildSchedule(scheduleData);
+  initReveal();
+}
+
+init();
+</script>
+</body>
+</html>
