@@ -110,8 +110,10 @@ def fetch_standings():
 # ── 4. GOLEADORES ─────────────────────────────────────────────────────────────
 def fetch_scorers():
     data = get("players/topscorers", league=LALIGA, season=SEASON)
+    resp = data.get("response", [])
+    print(f"  → API: {len(resp)} jugadores | errors: {data.get('errors')} | results: {data.get('results')}")
     players = []
-    for entry in data.get("response", [])[:40]:
+    for entry in resp[:40]:
         p = entry["player"]
         s = entry["statistics"][0]
         players.append({
