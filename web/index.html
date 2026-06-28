@@ -54,7 +54,8 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E8644E'/%3E%3Cstop offset='100%25' stop-color='%238E11F5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='26' fill='white'%3ELD%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   <style>
     /* ── RESET & BASE ── */
@@ -72,6 +73,8 @@
       --text:    #f0f0f8;
       --muted:   #7070a0;
       --grad: linear-gradient(135deg, var(--liga), var(--storm));
+      --font-display: 'Space Grotesk', 'Inter', sans-serif;
+      --font-sport:   'Bebas Neue', cursive;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -95,7 +98,8 @@
       transition: background .3s;
     }
     .nav-logo {
-      font-size: 1.15rem; font-weight: 900; letter-spacing: -0.5px;
+      font-family: var(--font-display);
+      font-size: 1.15rem; font-weight: 800; letter-spacing: -0.5px;
       display: flex; align-items: center; gap: .45rem;
     }
     .nav-logo .brand-l { color: var(--liga); }
@@ -142,27 +146,37 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(8,8,15,.95) 40%, rgba(142,17,245,.18) 100%);
+      background: linear-gradient(135deg, rgba(8,8,15,.95) 40%, rgba(142,17,245,.15) 100%);
     }
-    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .hero-glow {
+      position: absolute; z-index: 1;
+      top: 20%; left: -5%;
+      width: 70vw; height: 70vh;
+      background: radial-gradient(ellipse, rgba(142,17,245,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 760px; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
-      padding: .35rem .9rem;
+      padding: .4rem 1.1rem;
       border-radius: 99px;
-      border: 1px solid rgba(232,100,78,.35);
-      background: rgba(232,100,78,.1);
+      border: 1px solid rgba(232,100,78,.45);
+      background: rgba(232,100,78,.12);
       font-size: .75rem; font-weight: 700;
       color: var(--liga);
-      letter-spacing: .05em; text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      letter-spacing: .07em; text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 0 20px rgba(232,100,78,.15);
       animation: fadeUp .6s ease both;
     }
     .hero-title {
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -3px;
-      margin-bottom: 1.2rem;
+      font-family: var(--font-sport);
+      font-size: clamp(5rem, 11vw, 11rem);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: 4px;
+      margin-bottom: 1.4rem;
+      text-shadow: 0 0 80px rgba(142,17,245,.25);
       animation: fadeUp .6s .15s ease both;
     }
     .hero-title .ht-liga  { color: var(--liga); }
@@ -179,23 +193,26 @@
       animation: fadeUp .6s .45s ease both;
     }
     .btn-primary {
-      padding: .75rem 1.8rem;
+      font-family: var(--font-display);
+      padding: .85rem 2rem;
       border-radius: 10px;
-      font-size: .95rem; font-weight: 700;
+      font-size: 1rem; font-weight: 700;
       background: var(--grad);
       color: #fff; border: none; cursor: pointer;
-      transition: opacity .2s, transform .2s;
+      box-shadow: 0 4px 20px rgba(142,17,245,.35);
+      transition: opacity .2s, transform .2s, box-shadow .2s;
     }
-    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(142,17,245,.5); }
     .btn-ghost {
-      padding: .75rem 1.8rem;
+      font-family: var(--font-display);
+      padding: .85rem 2rem;
       border-radius: 10px;
-      font-size: .95rem; font-weight: 700;
-      background: rgba(255,255,255,.06);
-      color: var(--text); border: 1px solid var(--border); cursor: pointer;
-      transition: background .2s;
+      font-size: 1rem; font-weight: 700;
+      background: rgba(255,255,255,.05);
+      color: var(--text); border: 1px solid rgba(255,255,255,.15); cursor: pointer;
+      transition: background .2s, border-color .2s;
     }
-    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); }
     .hero-scroll {
       position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
       z-index: 2;
@@ -262,7 +279,7 @@
     }
     .stat-cell:hover::before { opacity: 1; }
     .stat-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-    .stat-value { font-size: 2.4rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+    .stat-value { font-family: var(--font-sport); font-size: 3.8rem; font-weight: 400; letter-spacing: 2px; line-height: 1; }
     .stat-value span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .stat-desc { font-size: .78rem; color: var(--muted); }
 
@@ -277,8 +294,9 @@
       color: var(--liga); margin-bottom: .5rem;
     }
     .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 900; letter-spacing: -1.5px; line-height: 1.1;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.5px; line-height: 1.1;
     }
     .section-link {
       font-size: .82rem; font-weight: 700; color: var(--storm);
@@ -298,7 +316,7 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.4rem 1.5rem;
-      transition: border-color .2s, transform .2s;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
       cursor: pointer;
       position: relative; overflow: hidden;
     }
@@ -307,8 +325,9 @@
       background: var(--grad); opacity: 0;
       transition: opacity .25s;
     }
-    .match-card:hover { border-color: rgba(232,100,78,.3); transform: translateY(-2px); }
-    .match-card:hover::before { opacity: .03; }
+    .match-card:hover { border-color: rgba(232,100,78,.35); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(232,100,78,.1); }
+    .match-card:hover::before { opacity: .04; }
+    .match-card.is-live { border-color: rgba(232,100,78,.3); box-shadow: 0 0 20px rgba(232,100,78,.12); }
     .match-card > * { position: relative; }
     .match-meta {
       display: flex; align-items: center; justify-content: space-between;
@@ -384,11 +403,15 @@
       border-radius: 14px;
       padding: 1.5rem 1.2rem;
       text-align: center;
-      transition: border-color .2s, transform .2s;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
       cursor: pointer;
       position: relative; overflow: hidden;
     }
-    .player-card:hover { border-color: rgba(142,17,245,.3); transform: translateY(-3px); }
+    .player-card:hover {
+      border-color: rgba(142,17,245,.5);
+      transform: translateY(-5px);
+      box-shadow: 0 4px 6px rgba(0,0,0,.3), 0 12px 40px rgba(142,17,245,.18), 0 0 0 1px rgba(142,17,245,.2);
+    }
     .player-rank {
       position: absolute; top: .8rem; left: .8rem;
       font-size: .65rem; font-weight: 900;
@@ -416,10 +439,17 @@
       transition: opacity .3s;
     }
     .player-card:hover .player-avatar::after { opacity: 1; }
-    .player-name { font-size: .88rem; font-weight: 700; margin-bottom: .2rem; }
+    .avatar-init {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 800;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .avatar-fallback .avatar-init { display: flex !important; }
+    .player-name { font-family: var(--font-display); font-size: .9rem; font-weight: 700; margin-bottom: .2rem; }
     .player-club { font-size: .72rem; color: var(--muted); margin-bottom: .9rem; }
     .player-stat-main {
-      font-size: 1.8rem; font-weight: 900; letter-spacing: -1px;
+      font-family: var(--font-sport);
+      font-size: 3rem; font-weight: 400; letter-spacing: 2px;
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .player-stat-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
@@ -489,17 +519,17 @@
       background: var(--card);
       padding: 2.5rem 2rem;
       display: flex; flex-direction: column; gap: .8rem;
-      transition: background .2s;
+      transition: background .25s, box-shadow .25s;
     }
-    .feature-cell:hover { background: var(--bg3); }
+    .feature-cell:hover { background: var(--bg3); box-shadow: inset 0 1px 0 rgba(232,100,78,.2); }
     .feature-icon {
       width: 48px; height: 48px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem;
       background: var(--bg3);
     }
-    .feature-num { font-size: .7rem; font-weight: 700; color: var(--muted); letter-spacing: .1em; }
-    .feature-title { font-size: 1.1rem; font-weight: 800; }
+    .feature-num { font-family: var(--font-sport); font-size: 3rem; font-weight: 400; color: var(--liga); letter-spacing: 2px; line-height: 1; opacity: .5; }
+    .feature-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
     .feature-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
 
     /* ── CAFECITO BANNER ── */
@@ -520,12 +550,12 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      opacity: .13;
-      filter: saturate(.5);
+      opacity: .30;
+      filter: saturate(.65) brightness(.85);
     }
     .cafecito-inner::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(8,8,15,.92) 45%, rgba(15,10,30,.6) 100%);
+      background: linear-gradient(90deg, rgba(8,8,15,.78) 35%, rgba(15,10,30,.42) 100%);
       z-index: 1; pointer-events: none;
     }
     .cafecito-text { position: relative; z-index: 2; }
@@ -538,8 +568,9 @@
       margin-bottom: 1rem;
     }
     .cafecito-title {
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 900; letter-spacing: -1px; line-height: 1.1;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-weight: 800; letter-spacing: -0.5px; line-height: 1.1;
       margin-bottom: .7rem;
     }
     .cafecito-sub { font-size: .88rem; color: var(--muted); line-height: 1.6; max-width: 440px; }
@@ -561,7 +592,7 @@
       padding: 3rem 6vw;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
-    .footer-logo { font-size: 1rem; font-weight: 900; }
+    .footer-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 800; }
     .footer-logo .brand-l { color: var(--liga); }
     .footer-logo .brand-s { color: var(--storm); }
     .footer-links { display: flex; gap: 1.5rem; }
@@ -636,6 +667,7 @@
     <source src="videofondo2.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-badge">⚡ &nbsp;La Liga · Copa del Rey · Champions League</div>
     <h1 class="hero-title">
@@ -868,7 +900,7 @@ function buildMatches(fixtures) {
     const diff = m.diff || 2;
     const diffClass = diff === 1 ? 'diff-1' : diff === 3 ? 'diff-3' : 'diff-2';
     const compKey = comp || 'laliga';
-    return `<div class="match-card">
+    return `<div class="match-card${live ? ' is-live' : ''}">
       <div class="match-meta">
         <div class="match-comp">
           <div class="comp-dot ${COMP_DOT_MAP[compKey] || 'comp-laliga'}"></div>
@@ -906,8 +938,11 @@ function buildPlayers(players) {
     const club  = p.team  || p.club || '';
     return `<div class="player-card">
       <div class="player-rank ${rankClass}">${rankN}</div>
-      <div class="player-avatar">
-        ${p.photo ? `<img src="${p.photo}" style="width:100%;height:100%;border-radius:50%;object-fit:cover">` : '⭐'}
+      <div class="player-avatar" data-initials="${p.name.split(' ').slice(-1)[0][0] || '?'}">
+        ${p.photo
+          ? `<img src="${p.photo}" style="width:100%;height:100%;border-radius:50%;object-fit:cover" onerror="this.style.display='none';this.closest('.player-avatar').classList.add('avatar-fallback')">`
+          : ''}
+        <span class="avatar-init" style="${p.photo ? 'display:none' : ''}">${p.name.split(' ').slice(-1)[0][0] || '⭐'}</span>
       </div>
       <div class="player-name">${p.name}</div>
       <div class="player-club">${club}</div>
