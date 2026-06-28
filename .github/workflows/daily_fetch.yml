@@ -2,7 +2,7 @@ name: La Liga DataStorm — Daily Data Fetch
 
 on:
   schedule:
-    - cron: "0 9 * * *"   # 06:00 AM Argentina (UTC-3)
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 jobs:
