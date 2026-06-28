@@ -36,3 +36,15 @@ jobs:
           git add web/data/
           git diff --cached --quiet || git commit -m "data: update $(date -u +'%Y-%m-%d %H:%M') UTC"
           git push
+
+      - name: Deploy data to Hostinger (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:     ${{ secrets.FTP_HOST }}
+          username:   ${{ secrets.FTP_USER }}
+          password:   ${{ secrets.FTP_PASSWORD }}
+          local-dir:  ./web/data/
+          server-dir: /public_html/data/
+          exclude: |
+            **/.git*
+            **/.git*/**

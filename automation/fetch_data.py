@@ -111,7 +111,7 @@ def fetch_standings():
 def fetch_scorers():
     data = get("players/topscorers", league=LALIGA, season=SEASON)
     players = []
-    for entry in data.get("response", [])[:20]:
+    for entry in data.get("response", [])[:40]:
         p = entry["player"]
         s = entry["statistics"][0]
         players.append({
@@ -129,7 +129,7 @@ def fetch_scorers():
 def fetch_assisters():
     data = get("players/topassists", league=LALIGA, season=SEASON)
     players = []
-    for entry in data.get("response", [])[:10]:
+    for entry in data.get("response", [])[:30]:
         p = entry["player"]
         s = entry["statistics"][0]
         players.append({
